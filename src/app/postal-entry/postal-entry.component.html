@@ -1,0 +1,80 @@
+<div *ngIf="meet">
+  <form [formGroup]="postalForm">
+    <div class="row my-2">
+      <div class="col-md-3">
+        Meet:
+      </div>
+      <div class="col-md-9">
+        {{meet.meet_name}}
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-md-3">
+        First Name:
+      </div>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="firstname" id="firstname" formControlName="first_name"/>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-md-3">
+        Surname:
+      </div>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="surname" id="surname" formControlName="surname"/>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-md-3">
+        Membership Number:
+      </div>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="number" id="number" formControlName="member_number"/>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-md-3">
+        Club Name:
+      </div>
+      <div class="col-md-9">
+        <input type="text" class="form-control" name="club" id="club" formControlName="club_name"/>
+      </div>
+    </div>
+    <div class="row my-2">
+      <div class="col-md-3">
+        Event:
+      </div>
+      <div class="col-md-9">
+        <select class="form-control" id="meetEvent" formControlName="meet_event">
+          <option>Event 1</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="row my-2">
+      <div class="col-sm-12">
+        Splits
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="col-auto" *ngFor="let timerName of timers; let i = index">
+        <div class="row">
+          <div class="col-auto">Timer {{timerName}} Name:</div>
+          <div class="col-auto"><input name="timer" class="form-control" type="text"/></div>
+        </div>
+        <div class="row" *ngFor="let splitDist of splits; let j = index">
+          <div class="col-sm-6">
+            {{splitDist.distance}}m
+          </div>
+          <div class="col-sm-6">
+            <input type="text" class="form-control"/>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  </form>
+
+</div>
